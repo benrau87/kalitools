@@ -10,6 +10,11 @@ echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | tee -a
 echo "Updating Kali"
 apt-get update && apt-get dist-upgrade -y -qq
 
+apt-get install aptitude pluma gedit
+
+service postgresql start
+update-rc.d postgresql enable
+service metasploit start
 mkdir ~/git
 
 cd ~/git
@@ -38,3 +43,8 @@ git clone --quiet https://github.com/adaptivethreat/BloodHound.git
 
 echo "Downloading KeeThief"
 git clone --quiet https://github.com/adaptivethreat/KeeThief.git
+
+echo "Downloading and making MimiKatz"
+git clone --quiet https://github.com/gentilkiwi/mimikatz.git
+wget http://blog.gentilkiwi.com/downloads/mimikatz_trunk.zip
+unzip -d /mimikatz_trunk.zip
