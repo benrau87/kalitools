@@ -22,8 +22,15 @@ cd $HOME/Desktop/Tools
 
 echo "Downloading Discovery"
 git clone --quiet https://github.com/leebaird/discover.git
-cd discover
+cd discover/
 ./update.sh
+
+cd $HOME/Desktop/Tools
+
+echo "Downloading Wordhound"
+git clone --quiet https://github.com/kurobeats/wordhound.git
+cd wordhound/
+python setup.py install && ./setup.sh
 
 cd $HOME/Desktop/Tools
 
