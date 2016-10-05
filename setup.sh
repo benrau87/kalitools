@@ -15,16 +15,17 @@ apt-get install aptitude pluma gedit
 service postgresql start
 update-rc.d postgresql enable
 service metasploit start
-mkdir ~/git
 
-cd ~/git
+mkdir $HOME/Desktop/Tools
+
+cd $HOME/Desktop/Tools
 
 echo "Downloading Discovery"
 git clone --quiet https://github.com/leebaird/discover.git
 cd discover
 ./update.sh
 
-cd ~/git
+cd $HOME/Desktop/Tools
 
 echo "Downloading Seclists"
 git clone --quiet https://github.com/benrau87/SecLists.git
@@ -48,3 +49,9 @@ echo "Downloading and making MimiKatz"
 git clone --quiet https://github.com/gentilkiwi/mimikatz.git
 wget http://blog.gentilkiwi.com/downloads/mimikatz_trunk.zip
 unzip -d /mimikatz_trunk.zip
+
+echo "Downloading WIFIPhisher"
+git clone --quiet https://github.com/sophron/wifiphisher.git
+
+echo "Downloading Easy-P"
+git clone --quiet https://github.com/cheetz/Easy-P.git
