@@ -62,3 +62,6 @@ git clone --quiet https://github.com/sophron/wifiphisher.git
 
 echo "Downloading Easy-P"
 git clone --quiet https://github.com/cheetz/Easy-P.git
+
+echo "Downloading Powershell-Suite"
+git clone --quiet https://github.com/FuzzySecurity/PowerShell-Suite.git
