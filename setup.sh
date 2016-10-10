@@ -10,7 +10,8 @@ echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | tee -a
 echo "Updating Kali"
 apt-get update && apt-get dist-upgrade -y -qq
 
-apt-get install aptitude pluma gedit
+echo "Adding some things that are nice to have"
+apt-get install aptitude pluma gedit -y -qq
 
 service postgresql start
 update-rc.d postgresql enable
