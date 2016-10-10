@@ -7,9 +7,6 @@ fi
 
 echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | tee -a /etc/apt/sources.list
 
-echo "Updating Kali"
-apt-get update && apt-get dist-upgrade -y -qq
-
 echo "Adding some things that are nice to have"
 apt-get install aptitude pluma gedit -y -qq
 
