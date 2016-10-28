@@ -15,7 +15,7 @@ update-rc.d postgresql enable
 service metasploit start
 
 mkdir $HOME/Desktop/Tools
-
+cp -r kalitools $HOME/Desktop/Tools/
 cd $HOME/Desktop/Tools
 
 echo "Downloading Discovery"
