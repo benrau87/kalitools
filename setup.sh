@@ -8,7 +8,7 @@ fi
 echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | tee -a /etc/apt/sources.list
 
 echo "Adding some things that are nice to have"
-apt-get install aptitude pluma gedit -y -qq
+apt-get -qq install aptitude pluma gedit -y 
 
 service postgresql start
 update-rc.d postgresql enable
