@@ -63,3 +63,6 @@ git clone --quiet https://github.com/cheetz/Easy-P.git
 
 echo "Downloading Powershell-Suite"
 git clone --quiet https://github.com/FuzzySecurity/PowerShell-Suite.git
+
+echo "Net-cred Sniffer"
+git clone --quiet https://github.com/DanMcInerney/net-creds.git
