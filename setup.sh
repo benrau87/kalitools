@@ -8,7 +8,7 @@ fi
 echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | tee -a /etc/apt/sources.list
 
 echo "Adding some things that are nice to have"
-apt-get -qq update
+apt-get -qq update && apt-get -y upgrade && apt-get -y install -f && apt-get autoremove
 apt-get -qq install aptitude pluma gedit gcc-multilib -y 
 
 service postgresql start
