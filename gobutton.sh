@@ -90,9 +90,9 @@ echo
 echo -e "${YELLOW}What is the name of the interface you wish to sniff traffic on?(ex: eth0)${NC}"
 read interface
 
-responder -I $interface -Afv > $casefolder/responder.$today.log &
-python /root/Desktop/tools/net-creds/net-creds.py -i $interface >  $casefolder/netcreds.$today.log &
-netdiscover -i $interface -p -P > $casefolder/passivediscover.$today.log &
+responder -I $interface -Afv > $casefolder/responder.log &
+python /root/Desktop/tools/net-creds/net-creds.py -i $interface >  $casefolder/netcreds.log &
+netdiscover -i $interface -p -P > $casefolder/passivediscover.log &
 echo
 print_status "Passive collection has started on $interface."
 print_status "Logs will be under $casefolder. Press CRTL+C to stop..."
