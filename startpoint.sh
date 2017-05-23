@@ -73,8 +73,11 @@ fi
 ##Depos add
 #this is a nice little hack I found in stack exchange to suppress messages during package installation.
 export DEBIAN_FRONTEND=noninteractive
+
 dir_check /root/Desktop/Engagements
 casefolder=/root/Desktop/Engagements
+today=`date '+%Y_%m_%d__%H_%M_%S'`
+
 echo -e "${RED}Active interfaces${NC}"
 for iface in $(ifconfig | cut -d ' ' -f1| tr '\n' ' ')
 do 
@@ -85,7 +88,8 @@ echo
 echo -e "${YELLOW}What is the name of the interface you wish to sniff traffic on?(ex: eth0)${NC}"
 read interface
 
-responder -I $interface -wrfv > $casefolder/responder.log
-python /root/Desktop/tools/net-creds/net-creds.py -i $interface >  $casefolder/netcreds.log
+responder -I $interface -wrfv > $casefolder/responder.$today.log &
+python /root/Desktop/tools/net-creds/net-creds.py -i $interface >  $casefolder/netcreds.$today.log &
+netdiscover -i $interface -p -P > $casefolder/passivediscover.$today.log
 
-
+print_status "Passive collection has started on $interface. Logs will be under $casefolder. Press CRTL+C to stop..."
