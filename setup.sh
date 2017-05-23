@@ -119,7 +119,7 @@ git clone --quiet https://github.com/adaptivethreat/KeeThief.git &>> $logfile
 
 print_status  "Downloading MimiKatz"
 wget https://github.com/gentilkiwi/mimikatz/releases/download/2.1.1-20170508/mimikatz_trunk.zip &>> $logfile
-unzip -d mimikatz_trunk.zip &>> $logfile
+unzip -d mimikatz mimikatz_trunk.zip &>> $logfile
 rm -f mimikatz_trunk.zip &>> $logfile
 
 print_status  "Downloading WIFIPhisher"
