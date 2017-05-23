@@ -117,10 +117,10 @@ git clone --quiet https://github.com/adaptivethreat/BloodHound.git &>> $logfile
 print_status  "Downloading KeeThief"
 git clone --quiet https://github.com/adaptivethreat/KeeThief.git &>> $logfile
 
-print_status  "Downloading and making MimiKatz"
-git clone --quiet https://github.com/gentilkiwi/mimikatz.git &>> $logfile
-wget http://blog.gentilkiwi.com/downloads/mimikatz_trunk.zip &>> $logfile
-unzip -d /mimikatz_trunk.zip &>> $logfile
+print_status  "Downloading MimiKatz"
+wget https://github.com/gentilkiwi/mimikatz/releases/download/2.1.1-20170508/mimikatz_trunk.zip &>> $logfile
+unzip -d mimikatz_trunk.zip &>> $logfile
+rm -f mimikatz_trunk.zip &>> $logfile
 
 print_status  "Downloading WIFIPhisher"
 git clone --quiet https://github.com/sophron/wifiphisher.git &>> $logfile
