@@ -69,12 +69,13 @@ fi
 }
 ########################################
 ##BEGIN MAIN SCRIPT##
-
+wget -O - https://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add -
+echo 'deb https://debian.neo4j.org/repo stable/' | sudo tee /etc/apt/sources.list.d/neo4j.list
 echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | tee -a /etc/apt/sources.list
 
 echo "Adding some things that are nice to have"
 apt-get -qq update && apt-get -y upgrade && apt-get -y install -f && apt-get autoremove
-install_packages aptitude pluma gedit gcc-multilib python-m2crypto -y 
+install_packages aptitude pluma gedit gcc-multilib python-m2crypto neo4j -y 
 
 service postgresql start  &>> $logfile
 update-rc.d postgresql enable  &>> $logfile
