@@ -93,5 +93,6 @@ read interface
 responder -I $interface -Afv > $casefolder/responder.$today.log &
 python /root/Desktop/tools/net-creds/net-creds.py -i $interface >  $casefolder/netcreds.$today.log &
 netdiscover -i $interface -p -P > $casefolder/passivediscover.$today.log &
-
-print_status "Passive collection has started on $interface. Logs will be under $casefolder. Press CRTL+C to stop..."
+echo
+print_status "Passive collection has started on $interface."
+print_status "Logs will be under $casefolder. Press CRTL+C to stop..."
