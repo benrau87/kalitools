@@ -88,7 +88,7 @@ echo
 echo -e "${YELLOW}What is the name of the interface you wish to sniff traffic on?(ex: eth0)${NC}"
 read interface
 
-responder -I $interface -wrfv > $casefolder/responder.$today.log &
+responder -I $interface -Afv > $casefolder/responder.$today.log &
 python /root/Desktop/tools/net-creds/net-creds.py -i $interface >  $casefolder/netcreds.$today.log &
 netdiscover -i $interface -p -P > $casefolder/passivediscover.$today.log
 
