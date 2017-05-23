@@ -82,9 +82,9 @@ update-rc.d postgresql enable  &>> $logfile
 systemctl enable postgresql.service  &>> $logfile
 
 
-mkdir $HOME/Desktop/Tools &>> $logfile
-cp -r kalitools $HOME/Desktop/Tools/  &>> $logfile
-cd $HOME/Desktop/Tools  &>> $logfile
+mkdir $HOME/Desktop/tools &>> $logfile
+cp -r *.sh $HOME/Desktop/tools/  &>> $logfile
+cd $HOME/Desktop/tools  &>> $logfile
 
 echo "Downloading Discovery"
 git clone --quiet https://github.com/leebaird/discover.git &>> $logfile
