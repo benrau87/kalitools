@@ -73,10 +73,12 @@ fi
 ##Depos add
 #this is a nice little hack I found in stack exchange to suppress messages during package installation.
 export DEBIAN_FRONTEND=noninteractive
+today=`date '+%Y_%m_%d__%H_%M'`
 
 dir_check /root/Desktop/Engagements
-casefolder=/root/Desktop/Engagements
-today=`date '+%Y_%m_%d__%H_%M_%S'`
+dir_check /root/Desktop/Engagements/Session_$today
+
+casefolder=/root/Desktop/Engagements/Session_$today
 
 echo -e "${RED}Active interfaces${NC}"
 for iface in $(ifconfig | cut -d ' ' -f1| tr '\n' ' ')
@@ -90,6 +92,6 @@ read interface
 
 responder -I $interface -Afv > $casefolder/responder.$today.log &
 python /root/Desktop/tools/net-creds/net-creds.py -i $interface >  $casefolder/netcreds.$today.log &
-netdiscover -i $interface -p -P > $casefolder/passivediscover.$today.log
+netdiscover -i $interface -p -P > $casefolder/passivediscover.$today.log &
 
 print_status "Passive collection has started on $interface. Logs will be under $casefolder. Press CRTL+C to stop..."
