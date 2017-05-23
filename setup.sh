@@ -113,8 +113,10 @@ print_status  "Downloading DomainPassSpray"
 git clone --quiet https://github.com/dafthack/DomainPasswordSpray.git &>> $logfile
 
 print_status  "Downloading Bloodhound"
-wget https://github.com/BloodHoundAD/BloodHound/releases/download/BloodHound-Rolling/BloodHound-linux-x64-2cac6e32550eb426c4790b82d7f6dd4fa80ee687.zip &>> $logfile
+wget https://github.com/BloodHoundAD/BloodHound/releases/download/BloodHound-Rolling/BloodHound-linux-ia32-2cac6e32550eb426c4790b82d7f6dd4fa80ee687.zip
 unzip -d bloodhound BloodHound-linux-x64* &>> $logfile
+rm BloodHound-linux-x64-2*.zip
+
 print_status  "Downloading KeeThief"
 git clone --quiet https://github.com/adaptivethreat/KeeThief.git &>> $logfile
 
