@@ -73,4 +73,16 @@ fi
 ##Depos add
 #this is a nice little hack I found in stack exchange to suppress messages during package installation.
 export DEBIAN_FRONTEND=noninteractive
+echo -e "${RED}Active interfaces${NC}"
+for iface in $(ifconfig | cut -d ' ' -f1| tr '\n' ' ')
+do 
+  addr=$(ip -o -4 addr list $iface | awk '{print $4}' | cut -d/ -f1)
+  printf "$iface\t$addr\n"
+done
+echo
+echo -e "${YELLOW}What is the name of the interface you wish to sniff traffic on?(ex: eth0)${NC}"
+read interface
+
+responder -I $interface -wrfv
+
 
