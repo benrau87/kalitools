@@ -95,4 +95,4 @@ python /root/Desktop/tools/net-creds/net-creds.py -i $interface >  $casefolder/n
 netdiscover -i $interface -p -P > $casefolder/passivediscover.log &
 echo
 print_status "Passive collection has started on $interface."
-print_status "Logs will be under $casefolder. Press CRTL+C to stop..."
+print_status "Logs will be under $casefolder. Close this terminal window to stop..."
