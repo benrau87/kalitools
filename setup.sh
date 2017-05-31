@@ -120,6 +120,9 @@ rm BloodHound-linux-x64-2*.zip
 print_status  "Downloading KeeThief"
 git clone --quiet https://github.com/adaptivethreat/KeeThief.git &>> $logfile
 
+print_status  "Downloading brutescrape"
+git clone --quiet https://github.com/cheetz/brutescrape.git  &>> $logfile
+
 print_status  "Downloading MimiKatz"
 wget https://github.com/gentilkiwi/mimikatz/releases/download/2.1.1-20170508/mimikatz_trunk.zip &>> $logfile
 unzip -d mimikatz mimikatz_trunk.zip &>> $logfile
