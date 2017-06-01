@@ -71,10 +71,10 @@ fi
 }
 ########################################
 ##BEGIN MAIN SCRIPT##
+export DEBIAN_FRONTEND=noninteractive
+
 echo "What is the IP address of the host?"
 read IP
-
-export DEBIAN_FRONTEND=noninteractive
 
 today=`date '+%Y_%m_%d'`
 
