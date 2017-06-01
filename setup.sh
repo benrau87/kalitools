@@ -74,7 +74,7 @@ echo 'deb https://debian.neo4j.org/repo stable/' | sudo tee /etc/apt/sources.lis
 echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | tee -a /etc/apt/sources.list
 
 echo "Adding some things that are nice to have"
-apt-get -qq update && apt-get -y upgrade && apt-get -y install -f && apt-get autoremove
+apt-get -qq update && apt-get -y dist-upgrade && apt-get -y install -f && apt-get autoremove
 install_packages aptitude pluma gedit gcc-multilib python-m2crypto neo4j -y 
 
 service postgresql start  &>> $logfile
@@ -88,8 +88,6 @@ cd $HOME/Desktop/tools  &>> $logfile
 
 echo "Downloading Discovery"
 git clone --quiet https://github.com/leebaird/discover.git &>> $logfile
-cd discover/ &>> $logfile
-./update.sh
 
 cd $HOME/Desktop/Tools
 
