@@ -71,10 +71,14 @@ fi
 }
 ########################################
 ##BEGIN MAIN SCRIPT##
+
 export DEBIAN_FRONTEND=noninteractive
 
 echo "What is the IP address of the host?"
 read IP
+
+echo "What is the port you would like to check?"
+read port
 
 today=`date '+%Y_%m_%d'`
 
@@ -87,11 +91,11 @@ print_notification "Running enumeration"
 enum4linux -a $IP > $casefolder/enum4linux.$IP.log 
 
 print_notification "Running directory checker"
-dirb http://$IP -Sw > $casefolder/full_dirb.$IP.log
-cat $casefolder/full_dirb.$IP.log | grep 'DIRECTORY' | cut -c15-99 > $casefolder/open_dirb.$IP.log
+dirb http://$IP:$port -Sw > $casefolder/full_dirb.$IP.$port.log
+cat $casefolder/full_dirb.$IP.log | grep 'DIRECTORY' | cut -c15-99 > $casefolder/open_dirb.$IP.$port.log
 
 print_notification "Running Vuln Scan"
-nikto -h $IP > $casefolder/nikto80.$IP.log
-nikto -h -ssl $IP > $casefolder/nikto443.$IP.log
+nikto -h $IP -p $port > $casefolder/nikto80.$IP.$port.log
+nikto -h -ssl $IP -p $port > $casefolder/nikto443.$IP.$port.log
 print_notification "Complete"
 echo "Results are in $casefolder"
