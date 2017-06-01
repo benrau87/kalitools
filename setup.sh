@@ -140,6 +140,9 @@ git clone --quiet https://github.com/FuzzySecurity/PowerShell-Suite.git &>> $log
 print_status  "Net-cred Sniffer"
 git clone --quiet https://github.com/DanMcInerney/net-creds.git &>> $logfile
 
+print_status  "LFI tools"
+git clone --quiet https://github.com/OsandaMalith/LFiFreak.git
+
 print_status  "Downloading Spiderfoot"
 git clone https://github.com/smicallef/spiderfoot.git
 cd spiderfoot
